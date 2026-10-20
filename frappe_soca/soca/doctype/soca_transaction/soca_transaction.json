@@ -1,0 +1,35 @@
+{
+  "doctype": "DocType",
+  "name": "SOCA Transaction",
+  "module": "SOCA",
+  "custom": 0,
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "profile",
+      "label": "Profile",
+      "fieldtype": "Link",
+      "options": "SOCA Profile",
+      "reqd": 1
+    },
+    {
+      "fieldname": "ciphertext",
+      "label": "Ciphertext",
+      "fieldtype": "Long Text",
+      "reqd": 1
+    },
+    {
+      "fieldname": "expires_at",
+      "label": "Expires At",
+      "fieldtype": "Datetime",
+      "reqd": 1
+    }
+  ],
+  "field_order": [
+    "profile",
+    "ciphertext",
+    "expires_at"
+  ],
+  "permissions": [],
+  "autoname": "hash"
+}
