@@ -45,3 +45,5 @@ certification, independent audit, load/accessibility review or multi-worker faul
 backup restore claim is made. Automated key rotation, profile/role synchronisation,
 provider logout, diagnostics and existing-session revocation remain outstanding.
 The [full per-ID assessment](requirements-coverage.md) preserves those gaps.
+
+CodeQL covers Python, the production JavaScript and GitHub Actions.
