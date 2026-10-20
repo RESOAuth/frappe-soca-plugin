@@ -70,6 +70,8 @@ real-test gate in production.
 | Session revocation | new logins check policy; existing-session propagation bound not implemented |
 | Claim diagnostics | not captured; no diagnostic retention store |
 
+Frappe SSO enters the native OAuth-style login_as/post_login pipeline. It does not add the password-flow local second-factor challenge. Require and verify issuer-specific acr/amr policy for SSO MFA. Email verification is not MFA.
+
 Local recovery: retain a strong native administrator credential and host MFA. Keep the
 host local login entry point available. Set deployment emergency disable, run native
 transaction invalidation/disable maintenance, restart workers to apply deployment
