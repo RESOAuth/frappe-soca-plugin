@@ -18,6 +18,7 @@ trap cleanup EXIT
 "$runtime" run -d --name "$redis" --network "$network" docker.io/library/redis:7-alpine@sha256:ca0acbb137c1dc3339c8b147a58fd6f42775d4599327b50e7b116c23de501af2 >/dev/null
 "$runtime" build -t "$image" -f Containerfile .
 "$runtime" run -d --name "$host" --network "$network" --entrypoint bash "$image" -lc 'sleep infinity' >/dev/null
+"$runtime" exec "$host" env/bin/python apps/frappe_soca/demo/register-app.py
 for attempt in $(seq 1 60); do
   if "$runtime" exec "$db" mariadb-admin ping -uroot -psoca-disposable-test --silent >/dev/null 2>&1; then break; fi
   if [ "$attempt" = 60 ]; then exit 1; fi

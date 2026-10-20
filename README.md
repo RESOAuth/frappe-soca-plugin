@@ -56,7 +56,8 @@ host image, creates MariaDB/Redis/site, installs the app, performs native accoun
 checks and removes its own containers. It does not contact an identity provider.
 For a manual demo, use this Containerfile in the official
 [Frappe Docker development/deployment stack](https://github.com/frappe/frappe_docker),
-then install the app into a disposable site. Keep sign-in behind HTTPS and redact
+then run `env/bin/python apps/frappe_soca/demo/register-app.py` for a new sites volume
+and install the app into a disposable site. Keep sign-in behind HTTPS and redact
 callback queries from Gunicorn/reverse-proxy access logs.
 
 ```sh
