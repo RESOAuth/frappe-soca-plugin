@@ -4,7 +4,7 @@ Result date: **2026-10-21**. Plugin **0.1.0a1**. Requirements revision:
 `60ea4db827457b4a4a7b11d79e86b654612a75e1`.
 
 The local security suite ran on Python **3.13.15** with **PyJWT 2.15.1**,
-**cryptography 50.0.2** and **urllib3 2.8.0**: **78 tests passed**. These are signed
+**cryptography 50.0.2** and **urllib3 2.8.0**: **80 tests passed**. These are signed
 synthetic fixtures and mocked transport responses, not a live identity provider.
 They cover strict domain rules, default/deny precedence, boolean verified email,
 ES256 defaults, deterministic proxy/branding/legal metadata, unsafe proxy templates,
@@ -47,3 +47,7 @@ provider logout, diagnostics and existing-session revocation remain outstanding.
 The [full per-ID assessment](requirements-coverage.md) preserves those gaps.
 
 CodeQL covers Python, the production JavaScript and GitHub Actions.
+
+Same-path PEM replacement is covered in hosted/proxy `jwks_uri` modes: the
+public key changes the candidate revision and rejects stale activation evidence and
+pending transactions, while an enabled-only toggle leaves the revision stable.
