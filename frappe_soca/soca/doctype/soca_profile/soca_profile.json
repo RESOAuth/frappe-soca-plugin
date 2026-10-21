@@ -1,0 +1,194 @@
+{
+  "doctype": "DocType",
+  "name": "SOCA Profile",
+  "module": "SOCA",
+  "custom": 0,
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "enabled",
+      "label": "Enabled",
+      "fieldtype": "Check",
+      "default": "0"
+    },
+    {
+      "fieldname": "origin",
+      "label": "Origin",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "description": "Canonical public HTTPS origin, never inferred from request headers."
+    },
+    {
+      "fieldname": "issuer",
+      "label": "Issuer",
+      "fieldtype": "Data",
+      "default": "https://auth.resoauth.cloud",
+      "reqd": 1
+    },
+    {
+      "fieldname": "metadata_mode",
+      "label": "Metadata Mode",
+      "fieldtype": "Select",
+      "options": "hosted\nproxy",
+      "default": "hosted"
+    },
+    {
+      "fieldname": "proxy",
+      "label": "Proxy",
+      "fieldtype": "Data",
+      "default": "https://dynamic-cimd.resoauth.cloud/cimd/%s"
+    },
+    {
+      "fieldname": "private_key_file",
+      "label": "Private Key File",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "description": "Absolute deployment secret reference. Restrict to mode 0600."
+    },
+    {
+      "fieldname": "client_name",
+      "label": "Client Name",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "client_uri",
+      "label": "Client Uri",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "logo_uri",
+      "label": "Logo Uri",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "policy_uri",
+      "label": "Policy Uri",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "tos_uri",
+      "label": "Tos Uri",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "allow_emails",
+      "label": "Allow Emails",
+      "fieldtype": "Small Text",
+      "description": "One exact email or domain rule per line. Domain rules permit one leading *."
+    },
+    {
+      "fieldname": "deny_emails",
+      "label": "Deny Emails",
+      "fieldtype": "Small Text",
+      "description": "One exact email or domain rule per line. Domain rules permit one leading *."
+    },
+    {
+      "fieldname": "allow_domains",
+      "label": "Allow Domains",
+      "fieldtype": "Small Text",
+      "description": "One exact email or domain rule per line. Domain rules permit one leading *."
+    },
+    {
+      "fieldname": "deny_domains",
+      "label": "Deny Domains",
+      "fieldtype": "Small Text",
+      "description": "One exact email or domain rule per line. Domain rules permit one leading *."
+    },
+    {
+      "fieldname": "provision",
+      "label": "Provision",
+      "fieldtype": "Check",
+      "default": "0"
+    },
+    {
+      "fieldname": "provision_role",
+      "label": "Provision Role",
+      "fieldtype": "Link",
+      "options": "Role",
+      "description": "Explicit role with desk_access disabled. Built-in privileged roles are rejected."
+    },
+    {
+      "fieldname": "id_token_alg",
+      "label": "Id Token Alg",
+      "fieldtype": "Select",
+      "options": "ES256\nES384\nES512\nPS256\nPS384\nPS512\nRS256",
+      "default": "ES256"
+    },
+    {
+      "fieldname": "userinfo",
+      "label": "Userinfo",
+      "fieldtype": "Check",
+      "default": "0"
+    },
+    {
+      "fieldname": "max_age",
+      "label": "Max Age",
+      "fieldtype": "Int",
+      "default": "3600"
+    },
+    {
+      "fieldname": "acr_values",
+      "label": "Acr Values",
+      "fieldtype": "Small Text"
+    },
+    {
+      "fieldname": "required_amr",
+      "label": "Required Amr",
+      "fieldtype": "Small Text"
+    },
+    {
+      "fieldname": "document_evidence",
+      "label": "Document Evidence",
+      "fieldtype": "Data",
+      "read_only": 1,
+      "hidden": 1
+    },
+    {
+      "fieldname": "login_evidence",
+      "label": "Login Evidence",
+      "fieldtype": "Data",
+      "read_only": 1,
+      "hidden": 1
+    }
+  ],
+  "field_order": [
+    "enabled",
+    "origin",
+    "issuer",
+    "metadata_mode",
+    "proxy",
+    "private_key_file",
+    "client_name",
+    "client_uri",
+    "logo_uri",
+    "policy_uri",
+    "tos_uri",
+    "allow_emails",
+    "deny_emails",
+    "allow_domains",
+    "deny_domains",
+    "provision",
+    "provision_role",
+    "id_token_alg",
+    "userinfo",
+    "max_age",
+    "acr_values",
+    "required_amr",
+    "document_evidence",
+    "login_evidence"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "export": 1,
+      "share": 0
+    }
+  ],
+  "autoname": "prompt",
+  "track_changes": 1
+}

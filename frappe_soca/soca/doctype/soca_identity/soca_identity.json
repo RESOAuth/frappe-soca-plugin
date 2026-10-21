@@ -1,0 +1,62 @@
+{
+  "doctype": "DocType",
+  "name": "SOCA Identity",
+  "module": "SOCA",
+  "custom": 0,
+  "engine": "InnoDB",
+  "fields": [
+    {
+      "fieldname": "issuer",
+      "label": "Issuer",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "subject",
+      "label": "Subject",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "user",
+      "label": "User",
+      "fieldtype": "Link",
+      "options": "User",
+      "reqd": 1
+    },
+    {
+      "fieldname": "approval_reason",
+      "label": "Approval Reason",
+      "fieldtype": "Small Text",
+      "reqd": 1
+    },
+    {
+      "fieldname": "identity_key",
+      "label": "Identity Key",
+      "fieldtype": "Data",
+      "unique": 1,
+      "read_only": 1
+    }
+  ],
+  "field_order": [
+    "issuer",
+    "subject",
+    "user",
+    "approval_reason",
+    "identity_key"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "export": 1,
+      "share": 0
+    }
+  ],
+  "autoname": "field:identity_key",
+  "track_changes": 1
+}

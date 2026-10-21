@@ -1,0 +1,11 @@
+app_name = "frappe_soca"
+app_title = "SOCA"
+app_publisher = "RESOAuth"
+app_description = "OpenID Connect with Client ID Metadata Documents"
+app_email = "security@resoauth.com"
+app_license = "AGPL-3.0-only"
+required_apps = ["frappe"]
+web_include_js = ["/assets/frappe_soca/js/login.js"]
+after_install = "frappe_soca.install.after_install"
+before_uninstall = "frappe_soca.install.before_uninstall"
+scheduler_events = {"hourly": ["frappe_soca.maintenance.cleanup"]}
